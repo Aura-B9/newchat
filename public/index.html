@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Chatting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="header-panel">
+            <h1>💬 Vibe Chatting</h1>
+            <div id="room-info">
+                Room: <span id="room-display">null</span>
+            </div>
+            <button id="change-room-btn">Change Room</button>
+        </div>
+
+        <div id="messages">
+            </div>
+
+        <div id="input-container">
+            <input type="text" id="message-input" placeholder="Type a message..." disabled>
+            <button id="send-button" disabled>Send</button>
+        </div>
+    </div>
+    <script src="client.js"></script>
+</body>
+</html>
