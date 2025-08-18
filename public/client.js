@@ -11,7 +11,12 @@ const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const roomDisplay = document.getElementById('room-display');
 const changeRoomBtn = document.getElementById('change-room-btn');
-const statusDisplay = document.getElementById('status-display'); // Assuming you add a status element in your HTML
+const statusDisplay = document.getElementById('status-display');
+
+// Modal elements
+const roomModal = document.getElementById('room-modal');
+const roomInput = document.getElementById('room-input');
+const joinRoomBtn = document.getElementById('join-room-btn');
 
 let currentRoom = null;
 let myId = null;
@@ -19,7 +24,7 @@ let myId = null;
 // --- WebSocket Connection Management ---
 function connectWebSocket() {
     if (socket && socket.readyState === WebSocket.OPEN) {
-        return; // Already connected
+        return;
     }
 
     socket = new WebSocket(wsURL);
@@ -28,7 +33,8 @@ function connectWebSocket() {
     socket.addEventListener('open', () => {
         console.log("Connected to server. Waiting for ID.");
         statusDisplay.textContent = 'Status: Connected';
-        // The server should now send the 'assign_id' message
+        // Show the modal to prompt for a room ID
+        showRoomModal();
     });
 
     socket.addEventListener('message', event => {
@@ -38,15 +44,10 @@ function connectWebSocket() {
                 case 'assign_id':
                     myId = data.id;
                     console.log(`Assigned ID: ${myId}`);
-                    // Join a room immediately after getting the ID
-                    joinRoom();
+                    // Hide the modal now that the user can join
                     break;
                 case 'message':
                     addMessage(data);
-                    break;
-                case 'user_count':
-                    // You can add logic here to display the user count
-                    console.log(`Current users in room: ${data.count}`);
                     break;
             }
         } catch (e) {
@@ -64,34 +65,33 @@ function connectWebSocket() {
     socket.addEventListener('error', (error) => {
         console.error("WebSocket Error:", error);
         statusDisplay.textContent = 'Status: Error. Reconnecting...';
-        socket.close(); // Close the connection to trigger the 'close' event and reconnection logic
+        socket.close();
     });
 }
 
-// --- Function to join a room ---
+// --- Function to join a room (now called from modal) ---
 function joinRoom() {
-    // Only prompt for a room if we don't have one or are explicitly changing rooms
-    if (!currentRoom || confirm("Are you sure you want to change rooms?")) {
-        const roomId = prompt("Please enter a Room ID:", "general");
-        if (roomId) {
-            if (socket && socket.readyState === WebSocket.OPEN) {
-                // Inform the server about the new room
-                socket.send(JSON.stringify({ type: 'join_room', roomId: roomId }));
-                
-                // Update client-side state
-                currentRoom = roomId;
-                roomDisplay.textContent = currentRoom;
-                messagesContainer.innerHTML = '';
-                addSystemMessage(`You joined Room: ${currentRoom}`);
-                
-                // Enable UI elements
-                messageInput.disabled = false;
-                sendButton.disabled = false;
-                messageInput.focus();
-            } else {
-                console.error("WebSocket is not open. Cannot join room.");
-            }
+    const roomId = roomInput.value.trim();
+    if (roomId) {
+        if (socket && socket.readyState === WebSocket.OPEN) {
+            socket.send(JSON.stringify({ type: 'join_room', roomId: roomId }));
+            
+            // Update client-side state
+            currentRoom = roomId;
+            roomDisplay.textContent = `Room: ${currentRoom}`;
+            messagesContainer.innerHTML = '';
+            addSystemMessage(`You joined Room: ${currentRoom}`);
+            
+            // Enable UI elements and hide modal
+            messageInput.disabled = false;
+            sendButton.disabled = false;
+            messageInput.focus();
+            hideRoomModal();
+        } else {
+            console.error("WebSocket is not open. Cannot join room.");
         }
+    } else {
+        alert("Please enter a room name.");
     }
 }
 
@@ -102,6 +102,16 @@ function sendMessage() {
         socket.send(JSON.stringify({ type: 'message', text: text }));
         messageInput.value = '';
     }
+}
+
+// --- Modal Functions ---
+function showRoomModal() {
+    roomModal.style.display = 'flex';
+    roomInput.focus();
+}
+
+function hideRoomModal() {
+    roomModal.style.display = 'none';
 }
 
 // --- UI Utility Functions ---
@@ -129,13 +139,19 @@ function addMessage(data) {
 
 function addSystemMessage(text) {
     const systemMessage = document.createElement('div');
-    systemMessage.className = 'system-message'; // Using a class for better styling
+    systemMessage.className = 'system-message';
     systemMessage.textContent = text;
     messagesContainer.appendChild(systemMessage);
 }
 
 // --- DOM Event Listeners ---
-changeRoomBtn.addEventListener('click', joinRoom);
+changeRoomBtn.addEventListener('click', showRoomModal); // Show modal on click
+joinRoomBtn.addEventListener('click', joinRoom);
+roomInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        joinRoom();
+    }
+});
 sendButton.addEventListener('click', sendMessage);
 messageInput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
