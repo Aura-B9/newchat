@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 #chat-container {
@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     width: 100%;
     max-width: 600px;
-    height: 90vh;
+    height: 100%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: white;
     border-radius: 8px;
