@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Chatting</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Responsive Chat App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="chat-container">
-        <div id="header-panel">
-            <h1>💬 Vibe Chatting</h1>
-            <div id="room-info">
-                Room: <span id="room-display">null</span>
-            </div>
-            <button id="change-room-btn">Change Room</button>
-        </div>
 
-        <div id="messages">
-            </div>
+    <div id="chat-container">
+        <header>
+            <div id="status-display">Status: Disconnected</div>
+            <h1 id="room-display">Welcome to Chat!</h1>
+            <button id="change-room-btn">Change Room</button>
+        </header>
+
+        <main id="messages">
+            </main>
 
         <div id="input-container">
             <input type="text" id="message-input" placeholder="Type a message..." disabled>
             <button id="send-button" disabled>Send</button>
         </div>
     </div>
+
+    <div id="room-modal" class="modal">
+        <div class="modal-content">
+            <h2>Join a Room</h2>
+            <p>Enter a name for the chat room you want to join.</p>
+            <input type="text" id="room-input" placeholder="e.g., general, gaming">
+            <button id="join-room-btn">Join</button>
+        </div>
+    </div>
+
     <script src="client.js"></script>
 </body>
 </html>
