@@ -1,4 +1,5 @@
 💬 Vibe Chatting - Real-Time Chat Application
+
 Vibe Chatting is a simple, real-time, room-based chat application built with Node.js, Express, and WebSockets. It allows users to join chat rooms by entering a Room ID and communicate with others in the same room instantly. All messages are ephemeral and are not stored on the server.
 You are completely anonymous and no barriers on chat so Chat whatever you want.
 
@@ -27,3 +28,5 @@ Real-Time Protocol: WebSocket (ws library)
 Frontend: HTML, CSS, JavaScript
 
 Deployment: Render 
+
+
