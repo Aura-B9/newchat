@@ -17,11 +17,13 @@ Simple & Clean UI: A minimalist and intuitive user interface.
 
 No Login Required: Chat anonymously without needing to create an account or provide a username.
 
+More features are comming soon.... until stay connected.
+
 🛠️ Tech Stack
 Backend: Node.js, Express.js
 
 Real-Time Protocol: WebSocket (ws library)
 
-Frontend: HTML, CSS, Vanilla JavaScript
+Frontend: HTML, CSS, JavaScript
 
-Deployment: Render (or any Node.js hosting service)
+Deployment: Render 
