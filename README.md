@@ -1,36 +1,38 @@
-# 💬 Vibe Chatting
+# 💬 Vibe Chatting - Real-Time Chat Application
 
-**Vibe Chatting** is a lightweight, anonymous, room-based real-time chat app built with Node.js, Express, and WebSockets. No login is required — just enter a Room ID and start chatting instantly!
+**Vibe Chatting** is a simple, real-time, room-based chat application built with **Node.js**, **Express**, and **WebSockets**.  
+Users can join chat rooms by entering a **Room ID** and instantly communicate with others in the same room.  
+
+All messages are **ephemeral** (not stored on the server), ensuring privacy.  
+You are completely **anonymous** — no accounts, no usernames, no barriers. Just chat freely.
 
 ---
 
-## 🚀 Live Demo
+## 🔗 Live Demo
 
-👉 [vibe-chatting.onrender.com](https://vibe-chatting.onrender.com/)
+👉 [Vibe Chatting Website](https://vibe-chatting.onrender.com/)
 
 ---
 
 ## ✨ Features
 
-- **Room-Based Chatting**: Join or create any chat room by entering a Room ID.
-- **Real-Time Communication**: Powered by WebSockets (`ws` library), messages appear instantly.
-- **Instant Identifiers**:
-  - Your messages are right-aligned and styled in blue.
-  - Others’ messages are left-aligned and gray.
-- **Timestamps**: Every message includes a timestamp.
-- **Simple & Clean UI**: Minimalist interface with focus on chat functionality.
-- **Anonymous**: No username or account needed to join a room.
-- **Lightweight & Dependency-Free**: Built with HTML, CSS, and vanilla JavaScript.
-- **Planned Enhancements**: More features coming soon... stay tuned!
+- **Room-Based Chatting**: Create or join any room by entering a Room ID.  
+- **Real-Time Communication**: Messages appear instantly for everyone in the same room via WebSockets.  
+- **Sender Identification**:  
+  - Your messages → aligned right & styled in **blue**.  
+  - Others’ messages → aligned left & styled in **gray**.  
+- **Message Timestamps**: Every message is timestamped.  
+- **Simple & Clean UI**: Minimalist and intuitive design.  
+- **No Login Required**: Chat anonymously — no sign-up or username needed.  
+- **More Features Coming Soon...** stay connected! 🚀  
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Tech Stack
 
-| Layer         | Technology            |
-|---------------|-----------------------|
-| **Backend**   | Node.js, Express.js   |
-| **Real-Time** | WebSocket (`ws`)      |
-| **Frontend**  | HTML, CSS, JavaScript |
-| **Deployment**| Render                |
+- **Backend**: Node.js, Express.js  
+- **Real-Time**: WebSocket (`ws` library)  
+- **Frontend**: HTML, CSS, JavaScript  
+- **Deployment**: Render  
 
+---
