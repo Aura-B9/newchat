@@ -1,31 +1,51 @@
-💬 Vibe Chatting - Real-Time Chat Application
+# 💬 Vibe Chatting
 
-Vibe Chatting is a simple, real-time, room-based chat application built with Node.js, Express, and WebSockets. It allows users to join chat rooms by entering a Room ID and communicate with others in the same room instantly. All messages are ephemeral and are not stored on the server.
-You are completely anonymous and no barriers on chat so Chat whatever you want.
+**Vibe Chatting** is a lightweight, anonymous, room-based real-time chat app built with Node.js, Express, and WebSockets. No login is required — just enter a Room ID and start chatting instantly!
 
-Direct link for Vibe Chatting website is - https://vibe-chatting.onrender.com/
+---
 
-✨ Features
-Room-Based Chatting: Create or join any room by simply entering a Room ID.
+## 🚀 Live Demo
 
-Real-Time Communication: Messages appear instantly for all users in the same room using WebSockets.
+👉 [vibe-chatting.onrender.com](https://vibe-chatting.onrender.com/)
 
-Sender Identification: Your messages are aligned to the right (blue), and messages from others are aligned to the left (gray), just like modern chat apps.
+---
 
-Message Timestamps: Every message is timestamped with the time it was sent.
+## ✨ Features
 
-Simple & Clean UI: A minimalist and intuitive user interface.
+- **Room-Based Chatting**: Join or create any chat room by entering a Room ID.
+- **Real-Time Communication**: Powered by WebSockets (`ws` library), messages appear instantly.
+- **Instant Identifiers**:
+  - Your messages are right-aligned and styled in blue.
+  - Others’ messages are left-aligned and gray.
+- **Timestamps**: Every message includes a timestamp.
+- **Simple & Clean UI**: Minimalist interface with focus on chat functionality.
+- **Anonymous**: No username or account needed to join a room.
+- **Lightweight & Dependency-Free**: Built with HTML, CSS, and vanilla JavaScript.
+- **Planned Enhancements**: More features coming soon... stay tuned!
 
-No Login Required: Chat anonymously without needing to create an account or provide a username.
+---
 
-More features are comming soon.... until stay connected.
+## 🛠 Tech Stack
 
-🛠️ Tech Stack
-Backend: Node.js, Express.js
+| Layer         | Technology            |
+|---------------|-----------------------|
+| **Backend**   | Node.js, Express.js   |
+| **Real-Time** | WebSocket (`ws`)      |
+| **Frontend**  | HTML, CSS, JavaScript |
+| **Deployment**| Render                |
 
-Real-Time Protocol: WebSocket (ws library)
+---
 
-Frontend: HTML, CSS, JavaScript
+## ⚡ Getting Started
 
-Deployment: Render 
+### Prerequisites
 
+- [Node.js](https://nodejs.org/) (v14+ recommended)
+- [npm](https://www.npmjs.com/)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Aura-B9/newchat.git
+   cd newchat
