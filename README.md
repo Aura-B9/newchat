@@ -29,4 +29,3 @@ Frontend: HTML, CSS, JavaScript
 
 Deployment: Render 
 
-
