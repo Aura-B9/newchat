@@ -34,18 +34,3 @@
 | **Frontend**  | HTML, CSS, JavaScript |
 | **Deployment**| Render                |
 
----
-
-## ⚡ Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v14+ recommended)
-- [npm](https://www.npmjs.com/)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Aura-B9/newchat.git
-   cd newchat
